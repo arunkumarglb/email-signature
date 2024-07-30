@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: #05001d;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body style="font-family: Arial, sans-serif; padding: 50px; max-width: 600px; margin: 50px auto;background-color: #fff;">
+    <div id="signature-code" style="max-width: 600px">
+        <table style="width: 100%; border-collapse: collapse;">
+            <tr>
+                <td style="vertical-align: middle;">
+                    <div>
+                        <p style="color:#5a76ff; margin: 0;"><strong>{{ company }}</strong></p>
+                        <br>
+                        <h2 style="color:#5a76ff; margin: 10px 0 0;">{{ name }}</h2>
+                        <p style="margin: 0;">{{ title }}</p>
+                    </div>
+                    <br>
+                    <div style="margin-top: 10px;">
+                        <a href="{{ facebook }}"><img src="https://i.postimg.cc/qBbNwqfX/facebook-icon.png" alt="Facebook" style="width: 25px;margin-right: 10px;"></a>
+                        <a href="{{ instagram }}"><img src="https://i.postimg.cc/jdDLFTtV/instagram-icon.png" alt="Instagram" style="width: 25px;margin-right: 10px;"></a>
+                        <a href="{{ linkedin }}"><img src="https://i.postimg.cc/XJnrHy7x/linkedin-icon.png" alt="LinkedIn" style="width: 25px;margin-right: 10px;"></a>
+                        <a href="{{ twitter }}"><img src="https://i.postimg.cc/TYBp8s3K/xtwitter-icon.png" alt="Twitter" style="width: 25px;"></a>
+                    </div>
+                </td>
+                <td style="width: 10px;"></td>
+                <td style="text-align: center; vertical-align: middle;">
+                    {% if profile_image %}
+                    <img src="https://i.postimg.cc/mg27xyzK/profile-pic.jpg" alt="Profile Image" style="border-radius: 50%; border: 7px solid #5a76ff; width: 125px; height: 125px; object-fit: cover;">
+                    {% endif %}
+                </td>
+                <td style="width: 15px;"></td>
+                <td style="vertical-align: bottom;font-size: 14px;">
+                    <br>
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="padding-right: 10px;">O: {{ phone }}</td>
+                            <td rowspan="2" style="width: 30px; vertical-align: middle;">
+                                <img src="https://i.postimg.cc/SRvjxTLt/call-icon.png" alt="Mobile" style="width: 30px; height: 30px;"></td>
+                        </tr>
+                        <tr>
+                            <td style="padding-right: 10px;">M: {{ phone }}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding-right: 10px;">{{ email }}</td>
+                            <td style="width: 30px;"><img src="https://i.postimg.cc/Bb6Xs9FK/email-icon.png" alt="Email"
+                                    style="width: 30px; height: 30px;"></td>
+                        </tr>
+                        <tr>
+                            <td style="padding-right: 10px;"><a href="{{ calendly }}"
+                                    style="color: #000; text-decoration: none;">{{ calendly }}</a></td>
+                            <td style="width: 30px;"><img src="https://i.postimg.cc/bJLsKNZP/calendar-icon.png"
+                                    alt="Calendly" style="width: 30px; height: 30px;"></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div style="margin-top: 20px; text-align: center;">
+        <button style="margin-right: 10px; padding: 10px 20px; background-color: #5a76ff; color: #fff; border: none; cursor: pointer;" onclick="copySignature()">Copy Signature</button>
+        <button style="padding: 10px 20px; background-color: #6c757d; color: #fff; border: none; cursor: pointer;" onclick="copyHtml()">Copy HTML Code</button>
+    </div>
+    <textarea id="signature-html" style="display:none;">
+        <div style="padding: 20px 0;">
+            <table style="width: 600px; border-collapse: collapse;">
+                <tr>
+                    <td style="vertical-align: middle; width: 33.33%;">
+                        <div>
+                            <p style="color:#5a76ff; margin: 0;"><strong>{{ company }}</strong></p>
+                            <br>
+                            <h2 style="color:#5a76ff; margin: 10px 0 0;">{{ name }}</h2>
+                            <p style="margin: 0;">{{ title }}</p>
+                        </div>
+                        <br>
+                        <div style="margin-top: 10px; display: flex; justify-content: space-between; width: 75%;">
+                            <a href="{{ facebook }}"><img src="https://i.postimg.cc/qBbNwqfX/facebook-icon.png" alt="Facebook" style="width: 30px; margin-right: 10px;"></a>
+                            <a href="{{ instagram }}"><img src="https://i.postimg.cc/jdDLFTtV/instagram-icon.png" alt="Instagram" style="width: 30px; margin-right: 10px;"></a>
+                            <a href="{{ linkedin }}"><img src="https://i.postimg.cc/XJnrHy7x/linkedin-icon.png" alt="LinkedIn" style="width: 30px; margin-right: 10px;"></a>
+                            <a href="{{ twitter }}"><img src="https://i.postimg.cc/TYBp8s3K/xtwitter-icon.png" alt="Twitter" style="width: 30px;"></a>
+                        </div>
+                    </td>
+                    <td style="width: 30px;">
+
+                    </td>
+                    <td style="text-align: center; vertical-align: middle; width: 33.33%;">
+                        {% if profile_image %}
+                        <img src="https://i.postimg.cc/mg27xyzK/profile-pic.jpg" alt="Profile Image" style="object-fit: cover; border-radius: 50%; border: 5px solid #5a76ff; width: 125px; height: 125px;">
+                        {% endif %}
+                    </td>
+                    <td style="vertical-align: middle; width: 33.33%;font-size: 14px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                            <p style="margin: 0; padding-right: 10px; margin-left: auto;">{{ phone }}</p>
+                            <img src="https://i.postimg.cc/SRvjxTLt/call-icon.png" alt="Mobile" style="width: 30px; height: 30px;">
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                            <p style="margin: 0; padding-right: 10px; margin-left: auto;">{{ email }}</p>
+                            <img src="https://i.postimg.cc/Bb6Xs9FK/email-icon.png" alt="Email" style="width: 30px; height: 30px;">
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <a href="{{ calendly }}" style="color: #000; text-decoration: none; padding-right: 10px; margin-left: auto;">{{ calendly }}</a>
+                            <img src="https://i.postimg.cc/bJLsKNZP/calendar-icon.png" alt="Calendly" style="width: 30px; height: 30px;">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </textarea>
+    <script>
+        function copyHtml() {
+            const signatureHtml = document.getElementById("signature-html");
+            signatureHtml.style.display = "block";
+            signatureHtml.select();
+            document.execCommand("copy");
+            signatureHtml.style.display = "none";
+            alert("Signature HTML code copied to clipboard!");
+        }
+
+        function copySignature() {
+            const signatureContainer = document.getElementById('signature-code');
+            const range = document.createRange();
+            range.selectNode(signatureContainer);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            document.execCommand("copy");
+            selection.removeAllRanges();
+            alert("Signature copied to clipboard!");
+        }
+    </script>
+</body>
+</html>
