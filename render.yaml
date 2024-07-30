@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: email-signature-generator
+    env: python
+    buildCommand: "pip3 install -r requirements.txt"
+    startCommand: "uvicorn main:app --host 0.0.0.0 --port 8000"
+    plan: free
+    envVars:
+      - key: PORT
+        value: 8000
