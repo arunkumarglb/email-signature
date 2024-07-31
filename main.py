@@ -31,6 +31,7 @@ async def generate_signature(
     calendly: str = Form(...),
     profile_picture: UploadFile = File(None),
     company_logo: UploadFile = File(None),
+    colorcode: str = Form(None),
 ):
     profile_image_b64 = None
     company_logo_b64 = None
@@ -53,6 +54,10 @@ async def generate_signature(
         # Handle default case or error handling if needed
         template_name = "signature.html"
 
+    if colorcode:
+        colorcode = colorcode
+    else:
+        colorcode = "5a76ff"
     return templates.TemplateResponse(template_name, {
         "request": request,
         "name": name,
@@ -67,6 +72,7 @@ async def generate_signature(
         "calendly": calendly,
         "profile_image": profile_image_b64,
         "company_logo": company_logo_b64,
+        "colorcode": colorcode,
     })
 
 

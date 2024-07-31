@@ -14,34 +14,52 @@
             <tr>
                 <td style="text-align: center; vertical-align: middle; width: 25%;">
                     {% if profile_image %}
-                    <div style="position: relative; width: 150px; height: 160px; border-radius: 57% 43% 44% 56% / 41% 55% 45% 59%; background: #0e83e4;">
-                        <img src="https://i.postimg.cc/FsPvVx0Q/fluid2-profilepic.jpg" alt="Profile Image" style="margin-top: 10px; border-radius: 56% 43% 43% 57% / 37% 45% 50% 62%; border: 5px solid white; width: 150px; height: 125px; object-fit: cover;">
+                    <div
+                        style="position: relative; width: 150px; height: 160px; border-radius: 57% 43% 44% 56% / 41% 55% 45% 59%; background: {{ colorcode }};">
+                        <img src="https://i.postimg.cc/FsPvVx0Q/fluid2-profilepic.jpg" alt="Profile Image"
+                            style="margin-top: 10px; border-radius: 56% 43% 43% 57% / 37% 45% 50% 62%; border: 5px solid white; width: 150px; height: 125px; object-fit: cover;">
                     </div>
                     {% endif %}
                 </td>
                 <td style="width: 10px;"></td>
-                <td style="vertical-align: middle; background-image: url('https://i.postimg.cc/52DgqVYd/worldmap.png'); background-size: cover; background-position: center;">
+                <td
+                    style="vertical-align: middle; background-image: url('https://i.postimg.cc/52DgqVYd/worldmap.png'); background-size: cover; background-position: center;">
                     <table style="width: 100%; border-collapse: collapse;">
                         <tr>
-                            <td style="border: 5px solid #0e83e4; border-width: 0px 0px 0px 5px; padding: 0px 20px;">
-                                <h2 style="color:#0e83e4; margin: 10px 0 0; text-transform: uppercase; font-size: 22px;">{{ name }}</h2>
+                            <td
+                                style="border: 5px solid {{ colorcode }}; border-width: 0px 0px 0px 5px; padding: 0px 20px;">
+                                <h2
+                                    style="color:{{ colorcode }}; margin: 10px 0 0; text-transform: uppercase; font-size: 22px;">
+                                    {{ name }}</h2>
                                 <p style="margin: 0; text-transform: uppercase; font-size: 14px;">{{ title }}</p>
                             </td>
                         </tr>
-                        <tr><td style="height: 20px;"></td></tr>
+                        <tr>
+                            <td style="height: 20px;"></td>
+                        </tr>
                         <tr>
                             <td>
                                 <table style="width: 100%; border-collapse: collapse;">
                                     <tr>
-                                        <td style="width: 25px;"><img src="https://i.postimg.cc/d0H8LSHh/black-call-icon.png" alt="Mobile" style="width: 25px; height: 25px;"></td>
+                                        <td style="width: 25px;">
+                                            <img src="https://i.postimg.cc/gJ4WfrJn/call.png" alt="Call"
+                                                style="width: 20px;height: 20px; padding: 5px;border-radius: 50px; background-color: {{ colorcode }};">
+                                        </td>
                                         <td style="padding-left: 10px;">{{ phone }}</td>
                                     </tr>
                                     <tr>
-                                        <td style="width: 25px;"><img src="https://i.postimg.cc/Prx6DGhT/fluid2-wen-icon.png" alt="Calendly" style="width: 25px; height: 25px;"></td>
-                                        <td style="padding-left: 10px;"><a href="{{ calendly }}" style="color: #000; text-decoration: none;">{{ calendly }}</a></td>
+                                        <td style="width: 25px;">
+                                            <img src="https://i.postimg.cc/2SBCVzHK/calendar.png" alt="Calendar"
+                                                style="width: 20px;height: 20px; padding: 5px;border-radius: 50px; background-color: {{ colorcode }};">
+                                        </td>
+                                        <td style="padding-left: 10px;"><a href="{{ calendly }}"
+                                                style="color: #000; text-decoration: none;">{{ calendly }}</a></td>
                                     </tr>
                                     <tr>
-                                        <td style="width: 25px;"><img src="https://i.postimg.cc/HWf9wRp5/black-location-icon.png" alt="Email" style="width: 25px; height: 25px;"></td>
+                                        <td style="width: 25px;"><img src="https://i.postimg.cc/V6zwGXzx/email.png"
+                                                alt="Email"
+                                                style="width: 20px;height: 20px; padding: 5px;border-radius: 50px; background-color: {{ colorcode }};">
+                                        </td>
                                         <td style="padding-left: 10px;">{{ email }}</td>
                                     </tr>
                                 </table>
@@ -50,14 +68,27 @@
                     </table>
                 </td>
                 <td style="width: 10px;"></td>
-                <td style="vertical-align: bottom; border: solid #333; border-width: 0px 0px 0px 3px; padding-left: 20px;background-image: url('https://i.postimg.cc/52DgqVYd/worldmap.png'); background-size: contain; background-position: center;">
+                <td
+                    style="vertical-align: bottom; border: solid #333; border-width: 0px 0px 0px 3px; padding-left: 20px;background-image: url('https://i.postimg.cc/52DgqVYd/worldmap.png'); background-size: contain; background-position: center;">
                     <img src="https://i.postimg.cc/FHX8yhvM/golittlebig-logo.png" alt="Logo" style="width: 125px;">
                     <table style="margin-top: 10px;">
                         <tr style="vertical-align: baseline;">
-                            <td><a href="{{ facebook }}"><img src="https://i.postimg.cc/02DdcnQ4/black-facebook-icon.png" alt="Facebook" style="width: 25px; margin-right: 5px;"></a></td>
-                            <td><a href="{{ instagram }}"><img src="https://i.postimg.cc/fWYD6zCb/fluid2-instagram-icon.png" alt="Instagram" style="width: 25px; margin-right: 5px;"></a></td>
-                            <td><a href="{{ linkedin }}"><img src="https://i.postimg.cc/rwTGb4Rw/black-linkedin-icon.png" alt="LinkedIn" style="width: 25px; margin-right: 5px;"></a></td>
-                            <td><a href="{{ twitter }}"><img src="https://i.postimg.cc/xCjWkQHK/fluid2-twitter-icon.png" alt="Twitter" style="width: 25px;"></a></td>
+                            <td><a href="{{ facebook }}" style="text-decoration: none;">
+                                    <img src="https://i.postimg.cc/43P3kpJT/facebook-tiny.png" alt="Facebook"
+                                        style="width: 20px;height: 20px; padding: 5px;border-radius: 40px; margin-right: 5px;background-color: {{ colorcode }};"></a>
+                            </td>
+                            <td> <a href="{{ instagram }}" style="text-decoration: none;">
+                                    <img src="https://i.postimg.cc/rsmkcc0g/instagram.png" alt="Instagram"
+                                        style="width: 20px;height: 20px; padding: 5px;border-radius: 40px; margin-right: 5px;background-color: {{ colorcode }};">
+                                </a></td>
+                            <td><a href="{{ linkedin }}" style="text-decoration: none;">
+                                    <img src="https://i.postimg.cc/bw657vKB/linkedin.png" alt="LinkedIn"
+                                        style="width: 20px;height: 20px; padding: 5px;border-radius: 40px; margin-right: 5px;background-color: {{ colorcode }};"></a>
+                            </td>
+                            <td> <a href="{{ twitter }}" style="text-decoration: none;">
+                                    <img src="https://i.postimg.cc/3rCK0XM5/twitter.png" alt="Twitter"
+                                        style="width: 20px;height: 20px; padding: 5px;border-radius: 40px; margin-right: 5px;background-color: {{ colorcode }};"></a>
+                            </td>
                         </tr>
                     </table>
                 </td>
@@ -66,56 +97,98 @@
     </div>
     <div style="margin-top: 20px; text-align: center;">
         <button
-            style="margin-right: 10px; padding: 10px 20px; background-color: #5a76ff; color: #fff; border: none; cursor: pointer;"
+            style="margin-right: 10px; padding: 10px 20px; background-color: {{ colorcode }}; color: #fff; border: none; cursor: pointer;"
             onclick="copySignature()">Copy Signature</button>
-        <button style="padding: 10px 20px; background-color: #6c757d; color: #fff; border: none; cursor: pointer;"
+        <button style="padding: 10px 20px; background-color: #0d72cb; color: #fff; border: none; cursor: pointer;"
             onclick="copyHtml()">Copy HTML Code</button>
-        <button style="padding: 10px 20px; background-color: #6c757d; color: #fff; border: none; cursor: pointer;"
+        <button style="padding: 10px 20px; background-color: #328923; color: #fff; border: none; cursor: pointer;"
             onclick="downloadSignature()">Download Image</button>
+        <button style="padding: 10px 20px; background-color: #414141; color: #fff; border: none; cursor: pointer;"
+            onclick="history.back()">Back</button>
     </div>
     <textarea id="signature-html" style="display:none;">
         <div style="padding: 20px 0;">
-            <table style="width: 600px; border-collapse: collapse;">
+            <table style="width: 100%; border-collapse: collapse;">
                 <tr>
-                    <td style="vertical-align: middle; width: 33.33%;">
-                        <div>
-                            <p style="color:#5a76ff; margin: 0;"><strong>{{ company }}</strong></p>
-                            <br>
-                            <h2 style="color:#5a76ff; margin: 10px 0 0;">{{ name }}</h2>
-                            <p style="margin: 0;">{{ title }}</p>
-                        </div>
-                        <br>
-                        <div style="margin-top: 10px; display: flex; justify-content: space-between; width: 75%;">
-                            <a href="{{ facebook }}"><img src="https://i.postimg.cc/qBbNwqfX/facebook-icon.png" alt="Facebook" style="width: 30px; margin-right: 10px;"></a>
-                            <a href="{{ instagram }}"><img src="https://i.postimg.cc/jdDLFTtV/instagram-icon.png" alt="Instagram" style="width: 30px; margin-right: 10px;"></a>
-                            <a href="{{ linkedin }}"><img src="https://i.postimg.cc/rwTGb4Rw/black-linkedin-icon.png" alt="LinkedIn" style="width: 30px; margin-right: 10px;"></a>
-                            <a href="{{ twitter }}"><img src="https://i.postimg.cc/TYBp8s3K/xtwitter-icon.png" alt="Twitter" style="width: 30px;"></a>
-                        </div>
-                    </td>
-                    <td style="width: 30px;">
-
-                    </td>
-                    <td style="text-align: center; vertical-align: middle; width: 33.33%;">
+                    <td style="text-align: center; vertical-align: middle; width: 25%;">
                         {% if profile_image %}
-                        <img src="https://i.postimg.cc/mg27xyzK/profile-pic.jpg" alt="Profile Image" style="object-fit: cover; border-radius: 50%; border: 5px solid #5a76ff; width: 125px; height: 125px;">
+                        <div
+                            style="position: relative; width: 150px; height: 160px; border-radius: 57% 43% 44% 56% / 41% 55% 45% 59%; background: {{ colorcode }};">
+                            <img src="https://i.postimg.cc/FsPvVx0Q/fluid2-profilepic.jpg" alt="Profile Image"
+                                style="margin-top: 10px; border-radius: 56% 43% 43% 57% / 37% 45% 50% 62%; border: 5px solid white; width: 150px; height: 125px; object-fit: cover;">
+                        </div>
                         {% endif %}
                     </td>
-                    <td style="vertical-align: middle; width: 33.33%;font-size: 14px;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
-                            <p style="margin: 0; padding-right: 10px; margin-left: auto;">{{ phone }}</p>
-                            <img src="https://i.postimg.cc/SRvjxTLt/call-icon.png" alt="Mobile" style="width: 30px; height: 30px;">
-                        </div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
-                            <p style="margin: 0; padding-right: 10px; margin-left: auto;">{{ email }}</p>
-                            <img src="https://i.postimg.cc/Bb6Xs9FK/email-icon.png" alt="Email" style="width: 30px; height: 30px;">
-                        </div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <a href="{{ calendly }}" style="color: #000; text-decoration: none; padding-right: 10px; margin-left: auto;">{{ calendly }}</a>
-                            <img src="https://i.postimg.cc/bJLsKNZP/calendar-icon.png" alt="Calendly" style="width: 30px; height: 30px;">
-                        </div>
+                    <td style="width: 10px;"></td>
+                    <td
+                        style="vertical-align: middle; background-image: url('https://i.postimg.cc/52DgqVYd/worldmap.png'); background-size: cover; background-position: center;">
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <tr>
+                                <td
+                                    style="border: 5px solid {{ colorcode }}; border-width: 0px 0px 0px 5px; padding: 0px 20px;">
+                                    <h2
+                                        style="color:{{ colorcode }}; margin: 10px 0 0; text-transform: uppercase; font-size: 22px;">
+                                        {{ name }}</h2>
+                                    <p style="margin: 0; text-transform: uppercase; font-size: 14px;">{{ title }}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="height: 20px;"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style="width: 100%; border-collapse: collapse;">
+                                        <tr>
+                                            <td style="width: 25px;">
+                                                <img src="https://i.postimg.cc/gJ4WfrJn/call.png" alt="Call"
+                                                    style="width: 20px;height: 20px; padding: 5px;border-radius: 50px; background-color: {{ colorcode }};">
+                                            </td>
+                                            <td style="padding-left: 10px;">{{ phone }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 25px;">
+                                                <img src="https://i.postimg.cc/2SBCVzHK/calendar.png" alt="Calendar"
+                                                    style="width: 20px;height: 20px; padding: 5px;border-radius: 50px; background-color: {{ colorcode }};">
+                                            </td>
+                                            <td style="padding-left: 10px;"><a href="{{ calendly }}"
+                                                    style="color: #000; text-decoration: none;">{{ calendly }}</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 25px;"><img src="https://i.postimg.cc/V6zwGXzx/email.png"
+                                                    alt="Email"
+                                                    style="width: 20px;height: 20px; padding: 5px;border-radius: 50px; background-color: {{ colorcode }};">
+                                            </td>
+                                            <td style="padding-left: 10px;">{{ email }}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
                     </td>
-                </tr>
-            </table>
+                    <td style="width: 10px;"></td>
+                    <td
+                        style="vertical-align: bottom; border: solid #333; border-width: 0px 0px 0px 3px; padding-left: 20px;background-image: url('https://i.postimg.cc/52DgqVYd/worldmap.png'); background-size: contain; background-position: center;">
+                        <img src="https://i.postimg.cc/FHX8yhvM/golittlebig-logo.png" alt="Logo" style="width: 125px;">
+                        <table style="margin-top: 10px;">
+                            <tr style="vertical-align: baseline;">
+                                <td><a href="{{ facebook }}" style="text-decoration: none;">
+                                        <img src="https://i.postimg.cc/43P3kpJT/facebook-tiny.png" alt="Facebook"
+                                            style="width: 20px;height: 20px; padding: 5px;border-radius: 40px; margin-right: 5px;background-color: {{ colorcode }};"></a>
+                                </td>
+                                <td> <a href="{{ instagram }}" style="text-decoration: none;">
+                                        <img src="https://i.postimg.cc/rsmkcc0g/instagram.png" alt="Instagram"
+                                            style="width: 20px;height: 20px; padding: 5px;border-radius: 40px; margin-right: 5px;background-color: {{ colorcode }};">
+                                    </a></td>
+                                <td><a href="{{ linkedin }}" style="text-decoration: none;">
+                                        <img src="https://i.postimg.cc/bw657vKB/linkedin.png" alt="LinkedIn"
+                                            style="width: 20px;height: 20px; padding: 5px;border-radius: 40px; margin-right: 5px;background-color: {{ colorcode }};"></a>
+                                </td>
+                                <td> <a href="{{ twitter }}" style="text-decoration: none;">
+                                        <img src="https://i.postimg.cc/3rCK0XM5/twitter.png" alt="Twitter"
+                                            style="width: 20px;height: 20px; padding: 5px;border-radius: 40px; margin-right: 5px;background-color: {{ colorcode }};"></a>
+                                </td>
+                            </tr>
+                        </table>
         </div>
     </textarea>
     <script>
