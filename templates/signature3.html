@@ -8,9 +8,9 @@
 </head>
 
 <body
-    style="font-family: Arial, sans-serif; padding: 50px; max-width: 600px; margin: 50px auto;background-color: #fff;">
+    style="padding: 50px; max-width: 600px; margin: 50px auto;background-color: #fff;">
     <div id="signature-code" style="max-width: 600px">
-        <table style="width: 100%; border-collapse: collapse;">
+        <table style="width: 100%; border-collapse: collapse;font-family: {{fontfamily}};">
             <tr>
                 <td style="text-align: center; vertical-align: middle; width: 25%;">
                     {% if profile_image %}
@@ -21,7 +21,7 @@
                     </div>
                     {% endif %}
                 </td>
-                <td style="width: 10px;"></td>
+                <td style="width: 10px;display: block;"></td>
                 <td
                     style="vertical-align: middle; background-image: url('https://i.postimg.cc/52DgqVYd/worldmap.png'); background-size: cover; background-position: center;">
                     <table style="width: 100%; border-collapse: collapse;">

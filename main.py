@@ -9,6 +9,18 @@ import base64
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 
+font_mapping = {
+    "arial": "'Arial', sans-serif",
+    "verdana": "'Verdana', sans-serif",
+    "helvetica": "'Helvetica', sans-serif",
+    "georgia": "'Georgia', serif",
+    "tahoma": "'Tahoma', sans-serif",
+    "times-new-roman": "'Times New Roman', serif",
+    "trebuchet-ms": "'Trebuchet MS', sans-serif",
+    "calibri": "'Calibri', sans-serif",
+    "garamond": "'Garamond', serif",
+    "lucida-sans": "'Lucida Sans', sans-serif"
+}
 
 @app.get("/", response_class=HTMLResponse)
 async def get_form(request: Request):
@@ -32,6 +44,7 @@ async def generate_signature(
     profile_picture: UploadFile = File(None),
     company_logo: UploadFile = File(None),
     colorcode: str = Form(None),
+    fontfamily: str = Form(...),
 ):
     profile_image_b64 = None
     company_logo_b64 = None
@@ -54,10 +67,12 @@ async def generate_signature(
         # Handle default case or error handling if needed
         template_name = "signature.html"
 
-    if colorcode:
-        colorcode = colorcode
-    else:
-        colorcode = "5a76ff"
+    if not colorcode:
+        colorcode = "#5a76ff"
+
+    # Retrieve the CSS value for the selected font family
+    fontfamily_css = font_mapping.get(fontfamily, "'Arial', sans-serif")
+
     return templates.TemplateResponse(template_name, {
         "request": request,
         "name": name,
@@ -73,6 +88,7 @@ async def generate_signature(
         "profile_image": profile_image_b64,
         "company_logo": company_logo_b64,
         "colorcode": colorcode,
+        "fontfamily": fontfamily_css,
     })
 
 
