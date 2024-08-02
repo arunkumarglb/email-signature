@@ -7,33 +7,42 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
 </head>
 
-<body
-    style="padding: 50px; max-width: 600px; margin: 50px auto;background-color: #fff;">
+<body style="padding: 50px; max-width: 600px; margin: 50px auto;background-color: #fff;">
     <div id="signature-code" style="max-width: 600px">
         <table style="width: 100%; border-collapse: collapse;font-family: {{fontfamily}};">
             <tr>
                 <td style="vertical-align: middle;">
                     <div>
+                        {% if company is not none %}
                         <p style="color:{{colorcode}}; margin: 0;"><strong>{{ company }}</strong></p>
+                        {% endif %}
                         <br>
                         <h2 style="color:{{ colorcode }}; margin: 10px 0 0;">{{ name }}</h2>
                         <p style="margin: 0;">{{ title }}</p>
                     </div>
                     <br>
                     <div style="margin-top: 10px;">
+                        {% if facebook is not none %}
                         <a href="{{ facebook }}" style="text-decoration: none;">
                             <img src="https://i.postimg.cc/43P3kpJT/facebook-tiny.png" alt="Facebook"
-                                style="width: 20px;height: 20px; padding: 5px;border-radius: 40px; margin-right: 10px;background-color: {{ colorcode }};"></a>
+                                style="width: 20px;height: 20px; padding: 5px;border-radius: {{border_radius}}; margin-right: 10px;background-color: {{ colorcode }};"></a>
+                        {% endif %}
+                        {% if instagram is not none %}
                         <a href="{{ instagram }}" style="text-decoration: none;">
                             <img src="https://i.postimg.cc/rsmkcc0g/instagram.png" alt="Instagram"
-                                style="width: 20px;height: 20px; padding: 5px;border-radius: 40px; margin-right: 10px;background-color: {{ colorcode }};">
+                                style="width: 20px;height: 20px; padding: 5px;border-radius: {{border_radius}}; margin-right: 10px;background-color: {{ colorcode }};">
                         </a>
+                        {% endif %}
+                        {% if linkedin is not none %}
                         <a href="{{ linkedin }}" style="text-decoration: none;">
                             <img src="https://i.postimg.cc/bw657vKB/linkedin.png" alt="LinkedIn"
-                                style="width: 20px;height: 20px; padding: 5px;border-radius: 40px; margin-right: 10px;background-color: {{ colorcode }};"></a>
+                                style="width: 20px;height: 20px; padding: 5px;border-radius: {{border_radius}}; margin-right: 10px;background-color: {{ colorcode }};"></a>
+                        {% endif %}
+                        {% if twitter is not none %}
                         <a href="{{ twitter }}" style="text-decoration: none;">
                             <img src="https://i.postimg.cc/3rCK0XM5/twitter.png" alt="Twitter"
-                                style="width: 20px;height: 20px; padding: 5px;border-radius: 40px; margin-right: 10px;background-color: {{ colorcode }};"></a>
+                                style="width: 20px;height: 20px; padding: 5px;border-radius: {{border_radius}}; margin-right: 10px;background-color: {{ colorcode }};"></a>
+                        {% endif %}
                     </div>
                 </td>
                 <td style="width: 10px;"></td>
@@ -47,31 +56,37 @@
                 <td style="vertical-align: bottom;font-size: 14px;">
                     <br>
                     <table style="width: 100%;">
+                        {% if phone is not none %}
                         <tr>
                             <td style="padding-right: 10px;">O: {{ phone }}</td>
                             <td rowspan="2" style="width: 30px; vertical-align: middle;">
                                 <img src="https://i.postimg.cc/gJ4WfrJn/call.png" alt="Call"
-                                    style="width: 25px;height: 25px; padding: 5px;border-radius: 50px; background-color: {{ colorcode }};">
+                                    style="width: 25px;height: 25px; padding: 5px;border-radius: {{border_radius}}; background-color: {{ colorcode }};">
                             </td>
                         </tr>
                         <tr>
                             <td style="padding-right: 10px;">M: {{ phone }}</td>
                         </tr>
+                        {% endif %}
+                        {% if email is not none %}
                         <tr>
                             <td style="padding-right: 10px;">{{ email }}</td>
                             <td style="width: 30px;">
                                 <img src="https://i.postimg.cc/V6zwGXzx/email.png" alt="Email"
-                                    style="width: 25px;height: 25px; padding: 5px;border-radius: 50px; background-color: {{ colorcode }};">
+                                    style="width: 25px;height: 25px; padding: 5px;border-radius: {{border_radius}}; background-color: {{ colorcode }};">
                             </td>
                         </tr>
+                        {% endif %}
+                        {% if calendly is not none %}
                         <tr>
                             <td style="padding-right: 10px;"><a href="{{ calendly }}"
                                     style="color: #000; text-decoration: none;">{{ calendly }}</a></td>
                             <td style="width: 30px;">
                                 <img src="https://i.postimg.cc/2SBCVzHK/calendar.png" alt="Calendar"
-                                    style="width: 25px;height: 25px; padding: 5px;border-radius: 50px; background-color: {{ colorcode }};">
+                                    style="width: 25px;height: 25px; padding: 5px;border-radius: {{border_radius}}; background-color: {{ colorcode }};">
                             </td>
                         </tr>
+                        {% endif %}
                     </table>
                 </td>
             </tr>
@@ -103,17 +118,17 @@
                         <div style="margin-top: 10px;">
                             <a href="{{ facebook }}" style="text-decoration: none;">
                                 <img src="https://i.postimg.cc/43P3kpJT/facebook-tiny.png" alt="Facebook"
-                                    style="width: 20px;height: 20px; padding: 5px;border-radius: 40px; margin-right: 10px;background-color: {{ colorcode }};"></a>
+                                    style="width: 20px;height: 20px; padding: 5px;border-radius: {{border_radius}}; margin-right: 10px;background-color: {{ colorcode }};"></a>
                             <a href="{{ instagram }}" style="text-decoration: none;">
                                 <img src="https://i.postimg.cc/rsmkcc0g/instagram.png" alt="Instagram"
-                                    style="width: 20px;height: 20px; padding: 5px;border-radius: 40px; margin-right: 10px;background-color: {{ colorcode }};">
+                                    style="width: 20px;height: 20px; padding: 5px;border-radius: {{border_radius}}; margin-right: 10px;background-color: {{ colorcode }};">
                             </a>
                             <a href="{{ linkedin }}" style="text-decoration: none;">
                                 <img src="https://i.postimg.cc/bw657vKB/linkedin.png" alt="LinkedIn"
-                                    style="width: 20px;height: 20px; padding: 5px;border-radius: 40px; margin-right: 10px;background-color: {{ colorcode }};"></a>
+                                    style="width: 20px;height: 20px; padding: 5px;border-radius: {{border_radius}}; margin-right: 10px;background-color: {{ colorcode }};"></a>
                             <a href="{{ twitter }}" style="text-decoration: none;">
                                 <img src="https://i.postimg.cc/3rCK0XM5/twitter.png" alt="Twitter"
-                                    style="width: 20px;height: 20px; padding: 5px;border-radius: 40px; margin-right: 10px;background-color: {{ colorcode }};"></a>
+                                    style="width: 20px;height: 20px; padding: 5px;border-radius: {{border_radius}}; margin-right: 10px;background-color: {{ colorcode }};"></a>
                         </div>
                     </td>
                     <td style="width: 10px;"></td>
@@ -131,7 +146,7 @@
                                 <td style="padding-right: 10px;">O: {{ phone }}</td>
                                 <td rowspan="2" style="width: 30px; vertical-align: middle;">
                                     <img src="https://i.postimg.cc/gJ4WfrJn/call.png" alt="Call"
-                                        style="width: 25px;height: 25px; padding: 5px;border-radius: 50px; background-color: {{ colorcode }};">
+                                        style="width: 25px;height: 25px; padding: 5px;border-radius: {{border_radius}}; background-color: {{ colorcode }};">
                                 </td>
                             </tr>
                             <tr>
@@ -141,7 +156,7 @@
                                 <td style="padding-right: 10px;">{{ email }}</td>
                                 <td style="width: 30px;">
                                     <img src="https://i.postimg.cc/V6zwGXzx/email.png" alt="Email"
-                                        style="width: 25px;height: 25px; padding: 5px;border-radius: 50px; background-color: {{ colorcode }};">
+                                        style="width: 25px;height: 25px; padding: 5px;border-radius: {{border_radius}}; background-color: {{ colorcode }};">
                                 </td>
                             </tr>
                             <tr>
@@ -149,7 +164,7 @@
                                         style="color: #000; text-decoration: none;">{{ calendly }}</a></td>
                                 <td style="width: 30px;">
                                     <img src="https://i.postimg.cc/2SBCVzHK/calendar.png" alt="Calendar"
-                                        style="width: 25px;height: 25px; padding: 5px;border-radius: 50px; background-color: {{ colorcode }};">
+                                        style="width: 25px;height: 25px; padding: 5px;border-radius: {{border_radius}}; background-color: {{ colorcode }};">
                                 </td>
                             </tr>
                         </table>

@@ -22,6 +22,7 @@ font_mapping = {
     "lucida-sans": "'Lucida Sans', sans-serif"
 }
 
+
 @app.get("/", response_class=HTMLResponse)
 async def get_form(request: Request):
     return templates.TemplateResponse("form.html", {"request": request})
@@ -33,18 +34,19 @@ async def generate_signature(
     design: str = Form(...),
     name: str = Form(...),
     title: str = Form(...),
-    company: str = Form(...),
-    email: str = Form(...),
-    phone: str = Form(...),
-    facebook: str = Form(...),
-    twitter: str = Form(...),
-    linkedin: str = Form(...),
-    instagram: str = Form(...),
-    calendly: str = Form(...),
+    company: str = Form(None),
+    email: str = Form(None),
+    phone: str = Form(None),
+    facebook: str = Form(None),
+    twitter: str = Form(None),
+    linkedin: str = Form(None),
+    instagram: str = Form(None),
+    calendly: str = Form(None),
     profile_picture: UploadFile = File(None),
     company_logo: UploadFile = File(None),
     colorcode: str = Form(None),
     fontfamily: str = Form(...),
+    border_shape: str = Form(...)
 ):
     profile_image_b64 = None
     company_logo_b64 = None
@@ -70,6 +72,16 @@ async def generate_signature(
     if not colorcode:
         colorcode = "#5a76ff"
 
+    # Determine border radius based on border shape
+    if border_shape == "square":
+        border_radius = "0px"
+    elif border_shape == "c-square":
+        border_radius = "10%"
+    elif border_shape == "circle":
+        border_radius = "50%"
+    else:
+        border_radius = "50%"
+
     # Retrieve the CSS value for the selected font family
     fontfamily_css = font_mapping.get(fontfamily, "'Arial', sans-serif")
 
@@ -89,6 +101,7 @@ async def generate_signature(
         "company_logo": company_logo_b64,
         "colorcode": colorcode,
         "fontfamily": fontfamily_css,
+        "border_radius": border_radius,
     })
 
 
